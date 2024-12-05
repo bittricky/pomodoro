@@ -14,8 +14,8 @@ export const useTimer = (duration: number) => {
 
   const resetTimer = useCallback(() => {
     setIsActive(false);
-    setProgress(100);
     setTimeLeft(duration * 60);
+    setProgress(100);
   }, [duration]);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ export const useTimer = (duration: number) => {
       interval = window.setInterval(() => {
         setTimeLeft((prev) => {
           const newTime = prev - 1;
-          setProgress((newTime / duration) * 60 * 100);
+          setProgress((newTime / (duration * 60)) * 100);
           return newTime;
         });
       }, 1000);
