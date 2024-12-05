@@ -3,22 +3,25 @@ import { FC, useState } from "react";
 import { TimerControls, CircularProgress, Settings } from "./components";
 
 import { useTimer } from "./hooks/useTimer";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 
 import { TimerMode } from "./types/global";
 import { getColorClass } from "./utils/colors";
 
 const App: FC = () => {
+  const [settings, setSettings] = useLocalStorage("timerSettings");
   const [currentMode, setCurrentMode] = useState<TimerMode>("pomodoro");
 
+  const duration = settings[currentMode];
   const { timeLeft, isActive, progress, formatTime, toggleTimer, resetTimer } =
-    useTimer(25);
+    useTimer(duration);
   const handleModeChange = (mode: TimerMode) => {
     setCurrentMode(mode);
     resetTimer();
   };
 
-  const colorClass = getColorClass("coral");
-  const fontClass = `font-coral`;
+  const colorClass = getColorClass(settings.color);
+  const fontClass = `font-${settings.font}`;
 
   return (
     <div
@@ -36,7 +39,7 @@ const App: FC = () => {
         <div className="bg-dark-800 rounded-full p-5 shadow-timer">
           <CircularProgress progress={progress} color={colorClass}>
             <div className="text-center">
-              <div className="text-white text-[100px] leading-[120px] font-bold tracking-[-4px] mb-4">
+              <div className="text-white text-7xl leading-[120px] font-bold tracking-[-4px] mb-4">
                 {formatTime(timeLeft)}
               </div>
               <button
@@ -50,7 +53,7 @@ const App: FC = () => {
         </div>
       </div>
 
-      <Settings settings={{}} onSettingsChange={() => {}} />
+      <Settings settings={settings} onSettingsChange={setSettings} />
     </div>
   );
 };

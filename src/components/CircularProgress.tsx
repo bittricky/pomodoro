@@ -18,7 +18,7 @@ const CircularProgress: FC<CircularProgressProps> = ({
       <svg
         height={radius * 2}
         width={radius * 2}
-        className="transform -rotate-90"
+        className="transform-rotate-90"
       >
         <circle
           stroke="currentColor"
