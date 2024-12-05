@@ -2,15 +2,19 @@ import { FC, useState } from "react";
 
 import { TimerControls } from "./components";
 
-import { getColorClass } from "./utils/colors";
+import { useTimer } from "./hooks/useTimer";
+
 import { TimerMode } from "./types/global";
+import { getColorClass } from "./utils/colors";
 
 const App: FC = () => {
   const [currentMode, setCurrentMode] = useState<TimerMode>("pomodoro");
 
+  const { timeLeft, isActive, progess, formatTime, toggletimer, resetTimer } =
+    useTimer(25);
   const handleModeChange = (mode: TimerMode) => {
     setCurrentMode(mode);
-    // TODO: handle timer duration
+    resetTimer();
   };
 
   const colorClass = getColorClass("coral");
