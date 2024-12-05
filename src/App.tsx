@@ -27,8 +27,6 @@ const App: FC = () => {
     <div
       className={`min-h-screen bg-dark-900 flex flex-col items-center pt-12 ${fontClass}`}
     >
-      <h1 className="text-white text-3xl mb-12">pomodoro</h1>
-
       <TimerControls
         currentMode={currentMode}
         onModeChange={handleModeChange}
