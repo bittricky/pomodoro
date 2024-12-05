@@ -6,7 +6,7 @@ const defaultSettings: TimerSettings = {
   shortBreak: 5,
   longBreak: 15,
   font: "inter",
-  color: "coral",
+  color: "yellow",
 };
 
 export const useLocalStorage = (

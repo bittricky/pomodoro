@@ -7,7 +7,7 @@ const Settings: FC<SettingsProps> = ({ settings, onSettingsChange }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const fonts = ["inter", "roboto", "poppings"];
-  const colors = ["coral", "cyan", "violet"];
+  const colors = ["yellow", "cyan", "violet"];
 
   const handleTimeChange = (key: keyof TimerSettings, value: number) => {
     onSettingsChange({
@@ -101,8 +101,8 @@ const Settings: FC<SettingsProps> = ({ settings, onSettingsChange }) => {
                       key={color}
                       onClick={() => onSettingsChange({ ...settings, color })}
                       className={`w-10 h-10 rounded-full ${
-                        color === "coral"
-                          ? "bg-coral-500"
+                        color === "yellow"
+                          ? "bg-yellow-500"
                           : color === "cyan"
                           ? "bg-cyan-500"
                           : "bg-violet-500"

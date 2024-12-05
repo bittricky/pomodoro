@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        coral: {
-          500: "#f87070",
+        yellow: {
+          500: "#fdd835",
         },
         cyan: {
           500: "#70f3f8",
