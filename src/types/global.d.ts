@@ -20,6 +20,11 @@ export interface CircularProgressProps {
   children: React.ReactNode;
 }
 
+export interface SettingsProps {
+  settings: TimerSettings;
+  onSettingsChange: (settings: TimerSettings) => void;
+}
+
 export interface Theme {
   primary: string;
   background: string;
