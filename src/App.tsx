@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 
-import { TimerControls } from "./components";
+import { TimerControls, CircularProgress } from "./components";
 
 import { useTimer } from "./hooks/useTimer";
 
@@ -10,7 +10,7 @@ import { getColorClass } from "./utils/colors";
 const App: FC = () => {
   const [currentMode, setCurrentMode] = useState<TimerMode>("pomodoro");
 
-  const { timeLeft, isActive, progess, formatTime, toggletimer, resetTimer } =
+  const { timeLeft, isActive, progress, formatTime, toggleTimer, resetTimer } =
     useTimer(25);
   const handleModeChange = (mode: TimerMode) => {
     setCurrentMode(mode);
@@ -34,7 +34,19 @@ const App: FC = () => {
 
       <div className="mt-12 mb-16">
         <div className="bg-dark-800 rounded-full p-5 shadow-timer">
-          {/* TODO: add pomodoro timer here */}
+          <CircularProgress progress={progress} color={colorClass}>
+            <div className="text-center">
+              <div className="text-white text-[100px] leading-[120px] font-bold tracking-[-4px] mb-4">
+                {formatTime(timeLeft)}
+              </div>
+              <button
+                onClick={toggleTimer}
+                className="text-white text-base uppercase tracking-[15px] hover:opacity-80 transition-opacity"
+              >
+                {isActive ? "Pause" : "Start"}
+              </button>
+            </div>
+          </CircularProgress>
         </div>
       </div>
 

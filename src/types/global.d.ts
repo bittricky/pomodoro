@@ -14,6 +14,12 @@ export interface TimerControlsProps {
   color: string;
 }
 
+export interface CircularProgressProps {
+  progress: number;
+  color: string;
+  children: React.ReactNode;
+}
+
 export interface Theme {
   primary: string;
   background: string;

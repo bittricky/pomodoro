@@ -8,7 +8,7 @@ export const useTimer = (duration: number) => {
 
   const formatTime = formatTimeDisplay;
 
-  const toggletimer = useCallback(() => {
+  const toggleTimer = useCallback(() => {
     setIsActive((prev) => !prev);
   }, []);
 
@@ -49,7 +49,7 @@ export const useTimer = (duration: number) => {
     isActive,
     progress,
     formatTime,
-    toggletimer,
+    toggleTimer,
     resetTimer,
   };
 };
