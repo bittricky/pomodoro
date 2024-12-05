@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 
-import { TimerControls, CircularProgress } from "./components";
+import { TimerControls, CircularProgress, Settings } from "./components";
 
 import { useTimer } from "./hooks/useTimer";
 
@@ -50,7 +50,7 @@ const App: FC = () => {
         </div>
       </div>
 
-      {/* TODO: add settings here */}
+      <Settings settings={{}} onSettingsChange={() => {}} />
     </div>
   );
 };
