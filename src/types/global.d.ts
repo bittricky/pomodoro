@@ -8,6 +8,12 @@ export interface TimerSettings {
   color: string;
 }
 
+export interface TimerControlsProps {
+  currentMode: TimerMode;
+  onModeChange: (mode: TimerMode) => void;
+  color: string;
+}
+
 export interface Theme {
   primary: string;
   background: string;
